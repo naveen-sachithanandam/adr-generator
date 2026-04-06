@@ -1,0 +1,25 @@
+Product team wanted to add conversational AI assistant 
+to customer self service portal. 
+Customers ask questions about their accounts, 
+policies, product features, and support issues.
+
+Two options evaluated. 
+Option one — connect directly to public LLM API. 
+Option two — build RAG system using company's own knowledge base.
+
+Direct LLM connection tested poorly. 
+Model had no knowledge of company specific policies, 
+pricing, or product details. Generated plausible but incorrect answers. 
+Customer trust risk identified as high.
+
+Decided to implement RAG architecture. 
+Company documentation, FAQs, policy documents, and product guides 
+loaded into vector database. 
+System retrieves relevant context before generating response.
+Accuracy in testing improved significantly. 
+Answers are grounded in actual company documentation.
+
+Ongoing maintenance required to keep knowledge base current. 
+Content team now owns update process. 
+Hallucination rate dropped from 34 percent in testing 
+to under 3 percent in production.

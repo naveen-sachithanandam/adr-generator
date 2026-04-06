@@ -1,0 +1,20 @@
+Hospital network needed to share patient data across 
+three separate systems. Electronic health records, 
+billing platform, and pharmacy management system. 
+Each system was built by a different vendor over 15 years.
+
+Data sharing was happening via nightly CSV file exports 
+and manual uploads. Patient data was frequently out of sync. 
+Clinical staff making decisions on stale information.
+
+Compliance requirement — HIPAA — meant data in transit 
+must be encrypted and all access must be logged.
+
+Decided to implement HL7 FHIR API layer as integration standard. 
+Each system exposes and consumes data through FHIR endpoints. 
+Real time data sharing replaced nightly batch process.
+
+Main challenge was one legacy system could not support FHIR natively. 
+Built a custom adapter that translates between legacy format and FHIR. 
+Data is now real time across all three systems. 
+Adapter for legacy system requires ongoing maintenance.

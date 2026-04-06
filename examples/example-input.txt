@@ -1,0 +1,16 @@
+We need a lightweight way for engineers to produce consistent Architecture Decision Records (ADRs) without hand-copying templates each time.
+
+Options we are considering:
+1) A small internal web app with forms and export to Markdown.
+2) IDE snippets / Copilot-only workflow (no shared template enforcement).
+3) A CLI that scaffolds empty MADR files only (no drafting help).
+
+Constraints:
+- Team is comfortable with Python.
+- We want optional AI assistance to turn rough notes into a structured MADR, not free-form prose.
+- Deployment should be simple (single container acceptable for internal use).
+- Secrets (API keys) must not live in the image; use environment variables.
+
+We are leaning toward Streamlit + Anthropic API for speed of delivery and a browser UI non-engineers can use if needed.
+
+Framing for this write-up: treat the decision as Proposed until we pilot with two teams.
