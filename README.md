@@ -132,6 +132,9 @@ This application was built using Cursor as an AI coding assistant. The architect
 
 ## Screenshots
 ![Home Page](docs/image1.png)
+
 ![Analysis](docs/image2.png)
+
 ![Generated ADR](docs/image3.png)
+
 ![Review ADR](docs/image4.png)
