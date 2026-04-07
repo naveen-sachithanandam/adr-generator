@@ -10,11 +10,12 @@ Clinical staff making decisions on stale information.
 Compliance requirement — HIPAA — meant data in transit 
 must be encrypted and all access must be logged.
 
-Decided to implement HL7 FHIR API layer as integration standard. 
+Decided to implement Standard for multiple system integration was chosen as a standard to be implemented. 
+This would allow for a standard way for systems in the ecosystem to interact
 Each system exposes and consumes data through FHIR endpoints. 
 Real time data sharing replaced nightly batch process.
 
-Main challenge was one legacy system could not support FHIR natively. 
+Main challenge was one legacy system could not support these modern integration standards natively and is reaching its end of life
 Built a custom adapter that translates between legacy format and FHIR. 
 Data is now real time across all three systems. 
 Adapter for legacy system requires ongoing maintenance.

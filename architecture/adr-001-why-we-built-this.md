@@ -29,7 +29,7 @@ Teams that adopt ADRs often stall on formatting and wording. A lightweight tool 
 - **Pros**: No runtime; clear structure.
 - **Cons**: Still manual; easy to skip sections or diverge from MADR.
 
-### This project: Streamlit + Anthropic SDK
+### This project: Streamlit + Anthropic SDK/Ollama
 
 - **Pros**: Fast path from brief to draft; preview and download in one screen; Docker-friendly.
 - **Cons**: External API dependency; keys and usage must be managed responsibly.

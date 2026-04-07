@@ -10,7 +10,7 @@ Option two — build RAG system using company's own knowledge base.
 Direct LLM connection tested poorly. 
 Model had no knowledge of company specific policies, 
 pricing, or product details. Generated plausible but incorrect answers. 
-Customer trust risk identified as high.
+Customer trust risk identified as high, as there would be hallucinations and trade-offs/proposals designed would be wrong.
 
 Decided to implement RAG architecture. 
 Company documentation, FAQs, policy documents, and product guides 

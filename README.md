@@ -2,6 +2,25 @@
 
 Small **Streamlit** app that turns a decision brief into **MADR-style** Markdown using **[Anthropic](https://www.anthropic.com/)** (cloud) and/or a **local model via [Ollama](https://ollama.com/)**.
 
+### Problem that this solves
+
+Every software system carries invisible decisions - accumalated reasoning behind hundreds of architechtural design decisions made by people who may no longer be on the team. 
+
+What if the reason isn't documented?
+- Any new team member would not know why this architechture decision was taken? 
+- Chance of creating the same mistakes again.
+- Old decisions being done due to a reason, would get reverted without understanding its rationale and impacts.
+- Architechture reviews become projects that are looking at why historically a decision was made, the focus would be on finding why rather than knowing.
+- Technical debt would grow incase the decision was supposed to be revisited as a fast follow or tech debt.
+
+"Architechture Decision Records" solve these problems. They make the invisible rationale, visible - capturing not just the decision but why, what was considered and rejected, how the decision was arrived.
+
+In current state of fast adoption of technical stack and limited resource availaibility, drafting clear ADRs is omitted or not given a serious thought. It takes a great deal of dicispline and time to draft a good ADR, which the teams rarely have time to do. 
+
+This tool is created specifically to remove that friction and ease ADR creation. This becomes a notetaker application that can draft clean ADRs. The beauty of this tool is it relies on prompts as its base which can be enhanced and edited as per each architecht's organization, constraints, techincal stack and format of sample ADRs in the company.
+
+You get a well structured ADR generated in seconds.
+
 Why this exists is documented in [architecture/adr-001-why-we-built-this.md](architecture/adr-001-why-we-built-this.md).
 
 ## Prerequisites
@@ -43,6 +62,33 @@ Open the URL Streamlit prints (default [http://localhost:8501](http://localhost:
 - **Healthcare:** [examples/industry-examples/input/healthcare-input-example.txt](examples/industry-examples/input/healthcare-input-example.txt)
 - **AI integration:** [examples/industry-examples/input/ai-integration-example.txt](examples/industry-examples/input/ai-integration-example.txt)
 
+## What this demonstrates?
+
+### Prompt Engineering
+This application uses three seperate prompts working together:
+- **Analyser** Prompt identifes what is the critical information that is missing from the notes/decision. It provides an oppurtunity for the architect to checkout the decision reasons, stakeholders, missing information in a more deep fashion.
+- **Generator** Prompt generates the ADR in seconds using the context, analyser input. It generates a MADR-inspired format from the notes and context.
+- **Reviewer** Prompt acts as a reviewer and provide critique on the generated ADR, surfaces unconsidered alternatives and risks that are understated.
+
+The quality of the output from this tool is dependent on the quality of the prompts, input, and most importantly context. The application provides a template to build such specialized tools that can generate ADRs. The application guides users to provide context - domain, scale, constraints  - rather than accepting a vague notes and generate a half-baked ADR document. 
+
+### Context Design
+AI models depend heavily on the context provided. Basically, they know what you tell them. 
+
+The application structures input collection across 4 layers:
+ - System Context - What kind of system, Which Domain, What is the scale?
+ - Decision Context - What is the decision in specific language.
+ - Constraints Context - What could be changed?
+ - Outcome Context - What actually happened and what was the learning?
+
+A richer context would provide a richer output.
+
+### Local vs Cloud LLM
+The automatic backend selector demonstrates enterprise architechtural pattern, it would provide to select local vs a cloud LLM service to generate results. It is able to gracefully fallback in case cloud systems aren't available to a local model based on credentials and configuration.
+
+This matters a lot in enterprise scale, where data security, integrity, confidentiality are a matter of concern. It also recognizes the backend would also bring in cost constraints for a tool that would generate these kind of documentation. Local Ollama can be used for the basic ADR generation.
+
+
 Load any of these from the sidebar (“Sample brief to load” → **Load sample into brief**).
 
 Illustrative MADR (human-written reference) for the default brief: [examples/example-output.md](examples/example-output.md).
@@ -75,6 +121,11 @@ Illustrative MADR (human-written reference) for the default brief: [examples/exa
 - Ollama keeps generations on your machine; Anthropic sends prompts to Anthropic’s API.
 - If you expose the Streamlit app beyond a trusted network, put it behind authentication or a VPN.
 
+## Architechtural Decisions for this Tool
+The decisions made while building this application are documented as ADRs (I know!) in the `/architechture` folder - using the same format the tool would generatee. 
+[# ADR-001: Why we built this ADR generator] - (`architechture/adr-001-why-we-built-this.md`)
 
-## How this was Built?
-This application was built using Cursor as a  AI coding assistant. The architechture, prompt design, and problem framing were my own. I used AI tooling to accelrate the implementation - which in itself is consistent with the theme of my project.
+This allows the tool also to have a sample format that the ADR would be generated on. The user can modify this to their templates and formats. It also emphasizes that using ADRs to build a ADR tool is an architechtural discipline, habit and not a afterthought.
+
+## How was it built
+This application was built using Cursor as a  AI coding assistant. The architechture, prompt design, and problem framing were my own. I used AI tooling to accelrate the implementation - which in itself is consistent with the theme of the project.
