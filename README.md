@@ -84,7 +84,7 @@ The application structures input collection across 4 layers:
 A richer context would provide a richer output.
 
 ### Local vs Cloud LLM
-The automatic backend selector demonstrates enterprise architectural pattern, it would provide to select local vs a cloud LLM service to generate results. It is able to gracefully fallback in case cloud systems aren't available to a local model based on credentials and configuration.
+The automatic backend selector demonstrates a real enterprise architectural pattern — graceful fallback between cloud and local inference based on available credentials and configuration.
 
 This matters a lot in enterprise scale, where data security, integrity, confidentiality are a matter of concern. It also recognizes the backend would also bring in cost constraints for a tool that would generate these kind of documentation. Local Ollama can be used for the basic ADR generation.
 
@@ -123,7 +123,7 @@ Illustrative MADR (human-written reference) for the default brief: [examples/exa
 
 ## Architectural Decisions for this Tool
 The decisions made while building this application are documented as ADRs (I know!) in the `/architecture` folder - using the same format the tool would generate. 
-[# ADR-001: Why we built this ADR generator] - (`architecture/adr-001-why-we-built-this.md`)
+[# ADR-001: Why we built this ADR generator](`architecture/adr-001-why-we-built-this.md`)
 
 This allows the tool also to have a sample format that the ADR would be generated on. The user can modify this to their templates and formats. It also emphasizes that using ADRs to build an ADR tool is an architectural discipline, habit and not an afterthought.
 
