@@ -131,7 +131,7 @@ This allows the tool also to have a sample format that the ADR would be generate
 This application was built using Cursor as an AI coding assistant. The architecture, prompt design, and problem framing were my own. I used AI tooling to accelerate the implementation - which in itself is consistent with the theme of the project.
 
 ## Screenshots
-- ![Home Page](docs/image1.png)
-- ![Analysis](docs/image2png)
-- ![Generated ADR](docs/image3.png)
-- ![Review ADR](docs/image4.png)
+![Home Page](docs/image1.png)
+![Analysis](docs/image2png)
+![Generated ADR](docs/image3.png)
+![Review ADR](docs/image4.png)
