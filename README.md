@@ -4,20 +4,20 @@ Small **Streamlit** app that turns a decision brief into **MADR-style** Markdown
 
 ### Problem that this solves
 
-Every software system carries invisible decisions - accumalated reasoning behind hundreds of architechtural design decisions made by people who may no longer be on the team. 
+Every software system carries invisible decisions - accumulated reasoning behind hundreds of architectural design decisions made by people who may no longer be on the team. 
 
 What if the reason isn't documented?
-- Any new team member would not know why this architechture decision was taken? 
+- Any new team member would not know why this architecture decision was taken? 
 - Chance of creating the same mistakes again.
 - Old decisions being done due to a reason, would get reverted without understanding its rationale and impacts.
-- Architechture reviews become projects that are looking at why historically a decision was made, the focus would be on finding why rather than knowing.
-- Technical debt would grow incase the decision was supposed to be revisited as a fast follow or tech debt.
+- Architecture reviews become projects that are looking at why historically a decision was made, the focus would be on finding why rather than knowing.
+- Technical debt would grow in case the decision was supposed to be revisited as a fast follow or tech debt.
 
-"Architechture Decision Records" solve these problems. They make the invisible rationale, visible - capturing not just the decision but why, what was considered and rejected, how the decision was arrived.
+"Architecture Decision Records" solve these problems. They make the invisible rationale, visible - capturing not just the decision but why, what was considered and rejected, how the decision was arrived.
 
-In current state of fast adoption of technical stack and limited resource availaibility, drafting clear ADRs is omitted or not given a serious thought. It takes a great deal of dicispline and time to draft a good ADR, which the teams rarely have time to do. 
+In current state of fast adoption of technical stack and limited resource availability, drafting clear ADRs is omitted or not given a serious thought. It takes a great deal of discipline and time to draft a good ADR, which the teams rarely have time to do. 
 
-This tool is created specifically to remove that friction and ease ADR creation. This becomes a notetaker application that can draft clean ADRs. The beauty of this tool is it relies on prompts as its base which can be enhanced and edited as per each architecht's organization, constraints, techincal stack and format of sample ADRs in the company.
+This tool is created specifically to remove that friction and ease ADR creation. This becomes a notetaker application that can draft clean ADRs. The beauty of this tool is it relies on prompts as its base which can be enhanced and edited as per each architect's organization, constraints, technical stack and format of sample ADRs in the company.
 
 You get a well structured ADR generated in seconds.
 
@@ -65,8 +65,8 @@ Open the URL Streamlit prints (default [http://localhost:8501](http://localhost:
 ## What this demonstrates?
 
 ### Prompt Engineering
-This application uses three seperate prompts working together:
-- **Analyser** Prompt identifes what is the critical information that is missing from the notes/decision. It provides an oppurtunity for the architect to checkout the decision reasons, stakeholders, missing information in a more deep fashion.
+This application uses three separate prompts working together:
+- **Analyser** Prompt identifies what is the critical information that is missing from the notes/decision. It provides an opportunity for the architect to check out the decision reasons, stakeholders, missing information in a more deep fashion.
 - **Generator** Prompt generates the ADR in seconds using the context, analyser input. It generates a MADR-inspired format from the notes and context.
 - **Reviewer** Prompt acts as a reviewer and provide critique on the generated ADR, surfaces unconsidered alternatives and risks that are understated.
 
@@ -84,7 +84,7 @@ The application structures input collection across 4 layers:
 A richer context would provide a richer output.
 
 ### Local vs Cloud LLM
-The automatic backend selector demonstrates enterprise architechtural pattern, it would provide to select local vs a cloud LLM service to generate results. It is able to gracefully fallback in case cloud systems aren't available to a local model based on credentials and configuration.
+The automatic backend selector demonstrates enterprise architectural pattern, it would provide to select local vs a cloud LLM service to generate results. It is able to gracefully fallback in case cloud systems aren't available to a local model based on credentials and configuration.
 
 This matters a lot in enterprise scale, where data security, integrity, confidentiality are a matter of concern. It also recognizes the backend would also bring in cost constraints for a tool that would generate these kind of documentation. Local Ollama can be used for the basic ADR generation.
 
@@ -121,11 +121,11 @@ Illustrative MADR (human-written reference) for the default brief: [examples/exa
 - Ollama keeps generations on your machine; Anthropic sends prompts to Anthropic’s API.
 - If you expose the Streamlit app beyond a trusted network, put it behind authentication or a VPN.
 
-## Architechtural Decisions for this Tool
-The decisions made while building this application are documented as ADRs (I know!) in the `/architechture` folder - using the same format the tool would generatee. 
-[# ADR-001: Why we built this ADR generator] - (`architechture/adr-001-why-we-built-this.md`)
+## Architectural Decisions for this Tool
+The decisions made while building this application are documented as ADRs (I know!) in the `/architecture` folder - using the same format the tool would generate. 
+[# ADR-001: Why we built this ADR generator] - (`architecture/adr-001-why-we-built-this.md`)
 
-This allows the tool also to have a sample format that the ADR would be generated on. The user can modify this to their templates and formats. It also emphasizes that using ADRs to build a ADR tool is an architechtural discipline, habit and not a afterthought.
+This allows the tool also to have a sample format that the ADR would be generated on. The user can modify this to their templates and formats. It also emphasizes that using ADRs to build an ADR tool is an architectural discipline, habit and not an afterthought.
 
 ## How was it built
-This application was built using Cursor as a  AI coding assistant. The architechture, prompt design, and problem framing were my own. I used AI tooling to accelrate the implementation - which in itself is consistent with the theme of the project.
+This application was built using Cursor as an AI coding assistant. The architecture, prompt design, and problem framing were my own. I used AI tooling to accelerate the implementation - which in itself is consistent with the theme of the project.
