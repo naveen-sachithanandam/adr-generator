@@ -123,7 +123,7 @@ Illustrative MADR (human-written reference) for the default brief: [examples/exa
 
 ## Architectural Decisions for this Tool
 The decisions made while building this application are documented as ADRs (I know!) in the `/architecture` folder - using the same format the tool would generate. 
-[# ADR-001: Why we built this ADR generator](`architecture/adr-001-why-we-built-this.md`)
+[ADR-001: Why we built this ADR generator](architecture/adr-001-why-we-built-this.md)
 
 This allows the tool also to have a sample format that the ADR would be generated on. The user can modify this to their templates and formats. It also emphasizes that using ADRs to build an ADR tool is an architectural discipline, habit and not an afterthought.
 
